@@ -12004,14 +12004,14 @@ textarea.form-control {
   width: 100%;
   height: 100%;
   align-items: stretch;
+  /* background-color: var(--white); */
 }
 
 #sidebar {
   min-width: 300px;
   max-width: 350px;
-  background: white;
+  background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
   border-radius: 0 25px 25px 0;
-  color: black;
   transition: all 0.3s;
 }
 
@@ -12021,37 +12021,34 @@ textarea.form-control {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: black;
-}
-
-#sidebar ul.components {
-  padding: 20px 0;
-  border-bottom: 1px solid #47748b;
+  background-color: var(--gray-dark);
+  border-radius: 0 25px 0px 0;
 }
 
 #sidebar ul p {
   color: black;
   padding: 10px;
+  font-size: 1.3em;
 }
 
 #sidebar ul li a {
   padding: 10px;
-  font-size: 1.1em;
+  font-size: 1.3em;
   display: block;
 }
 
-#sidebar ul li a:hover {
-  color: white;
-  background: white;
-}
+/* #sidebar ul li a:hover {
+  color: red;
+  background: pink;
+} */
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
   color: black;
-  background: white;
 }
 
 a[data-toggle="collapse"] {
+  /*Flecha do cbx*/
   position: relative;
 }
 
@@ -12066,9 +12063,6 @@ a[data-toggle="collapse"] {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: white;
-}
-.salvaA{
   color: black;
 }
 
@@ -12091,13 +12085,9 @@ a.download {
 
 a.article,
 a.article:hover {
-  background: #6d7fcc !important;
+  background: white !important;
   color: black !important;
 }
-
-/* ---------------------------------------------------
-  CONTENT STYLE
------------------------------------------------------ */
 
 #content {
   width: 100%;
@@ -12106,12 +12096,8 @@ a.article:hover {
   transition: all 0.3s;
 }
 
-/* ---------------------------------------------------
-  MEDIAQUERIES
------------------------------------------------------ */
-
 @media (max-width: 768px) {
- 
+
 
   #sidebar.active {
     margin-left: 0;
