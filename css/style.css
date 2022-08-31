@@ -12010,7 +12010,7 @@ textarea.form-control {
 #sidebar {
   min-width: 300px;
   max-width: 350px;
-  background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  background: #17202A;
   border-radius: 0 25px 25px 0;
   transition: all 0.3s;
 }
@@ -12021,12 +12021,12 @@ textarea.form-control {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background-color: var(--gray-dark);
+  background-color: #17202A;
   border-radius: 0 25px 0px 0;
 }
 
 #sidebar ul p {
-  color: black;
+  color: white;
   padding: 10px;
   font-size: 1.3em;
 }
@@ -12035,18 +12035,19 @@ textarea.form-control {
   padding: 10px;
   font-size: 1.3em;
   display: block;
+  color: white;
 }
 
-/* #sidebar ul li a:hover {
-  color: red;
-  background: pink;
-} */
+#sidebar ul li a:hover {
+  color:#17202A;
+  background: #A8EB12;
+}
 
-#sidebar ul li.active>a,
+#sidebar ul li.active>a:hover,
 a[aria-expanded="true"] {
-  color: black;
+  color: #17202A;
 }
-
+   
 a[data-toggle="collapse"] {
   /*Flecha do cbx*/
   position: relative;
@@ -12106,4 +12107,33 @@ a.article:hover {
   #sidebarCollapse span {
     display: none;
   }
+}
+
+.maintools {
+  background: white;
+  width: 80%;
+  box-shadow: 30px -16px teal;
+  margin: 30px 30px 30px 30px;
+  border-radius: 20px 20px 20px 20px;
+  display: flex;
+}
+
+#boxApi {
+  margin: 50px 50px 650px 20px;
+  width: 11%;
+  background: #17202A;
+  border-radius: 20px 20px 20px 20px;
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#boxApi button {
+  color: white;
+  font-size: 1.3em;
+  padding: 10px;
+  display: flex;
+  background: #17202A;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 20px 20px;
 }

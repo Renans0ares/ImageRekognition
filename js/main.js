@@ -23,36 +23,18 @@
 	  }
 	});
 
+  $('#imageUpload').change(function(){
+    const file = $(this)[0].files[0]
+      const fileReader = new FileReader()
+      fileReader.onloadend = function(){
+        $('#imagePreview').attr('src', fileReader.result)
+      }
+      fileReader.readAsDataURL(file) 
+  });
 })(jQuery);
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-            $('#imagePreview').hide();
-            $('#imagePreview').fadeIn(650);
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-$("#imageUpload").change(function() {
 
-  // var formData = new FormData();
-  // var target = 
-  // formData.append("file", document.getElementById("file").files[0]);
-  // var xhr = new XMLHttpRequest();
-  // var eventSource = xhr.upload || xhr;
-  // eventSource.addEventListener("progress", function(e){
-  //     var current = e.loaded || e.position ;
-  //     var total = e.total || e.totalSize;
-  //     var percant = parseInt((current/total)*100, 10);
-     
-  // });
-  // xhr.open("POST", target, true);
-  // xhr.send(formData);
-  // xhr.onload = function() {
-  //     if (this.status === 200){}
-         
-  // };
-    readURL(this);
-});
+function endPoint_API(){
+	window.location.href = '/Image.html'		
+}
+
+
