@@ -26,18 +26,18 @@ form{
 }
 
 form p{
-  position: absolute;
+ 
   width: 100%;
   height: 100%;
   text-align: center;
   line-height: 170px;
-  z-index:2 ;
+  
   color: #ffffff;
   font-family: Arial;
 }
 form input{
   position: absolute;
-  z-index:0 ;
+ 
   margin: 0;
   padding: 0;
   width: 100%;
@@ -79,13 +79,11 @@ form img {
 <body class="img js-fullheight"
   style="background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);">
 
-  
-    <form action="upload.php" method="POST">
-      <input type="file"  id="imageUpload" accept=".png, .jpg, .jpeg" >
-      <p> Arraste a imagem ou clique na area</p>
-        <img id="imagePreview">
-        <button type="submit">Upload</button>
-    </form>
+  <form action="upload.php" method="POST">
+    <input type="file" multiple>
+    <p>Arraste a imagem para está area.</p>
+    <button onclick="Enviar()" type="submit">Upload</button>
+  </form>
     
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>

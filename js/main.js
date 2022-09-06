@@ -23,16 +23,32 @@
 	  }
 	});
 
-  $('#imageUpload').change(function(){
-    const file = $(this)[0].files[0]
-      const fileReader = new FileReader()
-      fileReader.onloadend = function(){
-        $('#imagePreview').attr('src', fileReader.result)
-      }
-      fileReader.readAsDataURL(file) 
-  });
+ 
 })(jQuery);
 
+$(document).ready(function(){
+	$('form input').change(function () {
+	  $('form p').text(this.files.length + " Arquivo(s) Selecioando");
+	});
+  });
+
+function Enviar(){
+	$.ajax({
+        url: '',
+        type:'POST',
+        dataType: 'html',
+        data: {
+            id: '1'
+        },
+        success: function(data) {
+        if ( data == 'voted' ) {
+            $('.set-result').html( 'you already voted. try again after 24 hours' );
+        } else {
+            $('.set-result').html( 'successfully voted' );
+        }
+    }
+    });
+}
 function endPoint_API(){
 	window.location.href = '/Image.html'		
 }
