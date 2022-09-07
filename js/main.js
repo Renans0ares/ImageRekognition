@@ -49,8 +49,8 @@ function Enviar() {
 		}
 	});
 }
-function endPoint_API() {
-	window.location.href = '/Image.html'
-}
+// function endPoint_API() {
+// 	window.location.href = '/Image.html'
+// }
 
 
