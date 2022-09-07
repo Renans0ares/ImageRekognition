@@ -4,10 +4,11 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
 -->
 <!DOCTYPE html>
 <html>
+
 <head>
   <script src="aws-cognito-sdk.min.js"></script>
   <script src="amazon-cognito-identity.min.js"></script>
-  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1209.0.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.16.0.min.js"></script>
   <meta charset="UTF-8">
   <title>Rekognition</title>
 </head>
@@ -22,7 +23,7 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
   document.getElementById("fileToUpload").addEventListener("change", function (event) {
     ProcessImage();
   }, false);
-  
+
   //Calls DetectFaces API and shows estimated ages of detected faces
   function DetectFaces(imageData) {
     AWS.region = "us-east-1";
@@ -38,7 +39,7 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
     rekognition.detectFaces(params, function (err, data) {
       if (err) console.log(err, err.stack); // an error occurred
       else {
-       var table = "<table><tr><th>Low</th><th>High</th></tr>";
+        var table = "<table><tr><th>Low</th><th>High</th></tr>";
         // show each face and build out estimated age table
         for (var i = 0; i < data.FaceDetails.length; i++) {
           table += '<tr><td>' + data.FaceDetails[i].AgeRange.Low +
@@ -48,6 +49,7 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
         document.getElementById("opResult").innerHTML = table;
       }
     });
+
   }
   //Loads selected image and unencodes image bytes for Rekognition DetectFaces API
   function ProcessImage() {
@@ -92,10 +94,11 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
   }
   //Provides anonymous log on to AWS services
   function AnonLog() {
-    
+
     // Configure the credentials provider to use your identity pool
     AWS.config.region = 'us-east-1'; // Region
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+      // IdentityPoolId: 'us-east-1:a8358272-9ee8-4dc2-a425-550cdd5972b4',
       IdentityPoolId: 'us-east-1:2c44eea1-7064-4a85-abce-d4a2cb6005fa',
     });
     // Make the call to obtain credentials
@@ -107,4 +110,5 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
     });
   }
 </script>
+
 </html>

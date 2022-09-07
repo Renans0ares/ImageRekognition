@@ -12039,7 +12039,7 @@ textarea.form-control {
 }
 
 #sidebar ul li a:hover {
-  color:#17202A;
+  color: #17202A;
   background: #A8EB12;
 }
 
@@ -12047,7 +12047,7 @@ textarea.form-control {
 a[aria-expanded="true"] {
   color: #17202A;
 }
-   
+
 a[data-toggle="collapse"] {
   /*Flecha do cbx*/
   position: relative;
