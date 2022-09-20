@@ -31,3 +31,33 @@
 // TIPO2 like '%Footwear%' OR 
 // TIPO3 like '%Sneaker%' OR
 // TIPO4 like '%Apparel%' 
+
+/*
+SELECT *
+FROM(
+    SELECT
+    *
+    FROM PRODUTO
+    WHERE TIPO1 = 'SEILA'
+    UNION ALL
+    SELECT
+    *
+    FROM PRODUTO
+    WHERE TIPO1 = 'SEILA'
+    UNION ALL
+    SELECT
+    *
+    FROM PRODUTO
+    WHERE TIPO1 = 'SEILA'
+    UNION ALL
+    SELECT
+    *
+    FROM PRODUTO
+    WHERE TIPO1 = 'SEILA'
+    UNION ALL
+    SELECT
+    *
+    FROM PRODUTO
+    WHERE TIPO1 = 'SEILA'
+)
+*/
