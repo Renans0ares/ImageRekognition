@@ -25,15 +25,17 @@ const Usuario = database.define('USUARIO',{
      }
 })
 
+module.exports = Usuario;
+
 // CREATE
 // (async () => {
 //     const database = require('./db');
 //     const Produto = require('./produto');
- 
+
 //     try {
 //         const resultado = await database.sync();
 //         console.log(resultado);
- 
+
 //         const resultadoCreate = await Produto.create({
 //             nome: 'mouse',
 //             preco: 10,

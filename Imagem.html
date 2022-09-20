@@ -143,7 +143,6 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
     AnonLog();
     var control = document.getElementById("fileToUpload");
     var file = control.files[0];
-
     // Load base64 encoded image 
     var reader = new FileReader();
     reader.onload = (function (theFile) {
@@ -154,7 +153,6 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
         var jpg = true;
         try {
           image = atob(e.target.result.split("data:image/jpeg;base64,")[1]);
-
         } catch (e) {
           jpg = false;
         }
@@ -181,7 +179,6 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
   }
   //Provides anonymous log on to AWS services
   function AnonLog() {
-
     // Configure the credentials provider to use your identity pool
     AWS.config.region = 'us-east-1'; // Region
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({

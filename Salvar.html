@@ -88,9 +88,9 @@
   style="background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);">
 
   <form action="upload.php" method="POST">
-    <input type="file" multiple>
+    <input type="file" name="fileToSave" id="fileToSave" multiple>
     <p>Arraste a imagem para está area.</p>
-    <button onclick="Enviar()" type="submit">Upload</button>
+    <button onclick="Salvar()" type="submit">Salvar</button>
   </form>
 
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
