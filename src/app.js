@@ -1,4 +1,4 @@
-import { criarTabela } from './Controller/Usuario.js';
+import { criarTabela, insertUsuario } from './Controller/Usuario.js';
 
 import express from 'express';
 const app = express();
@@ -11,7 +11,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/usuario', function(req, res){
-    console.log(req.body);
+    insertUsuario(req.body);
     res.json({
         "statusCode": 200
     })
