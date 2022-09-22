@@ -14,6 +14,6 @@ export async function inserirUsuario(usuario) {
 
 export async function alterarUsuario(usuario) {
     openDb().then(db => {
-        db.run('UPDATE USUARIO SET NOME = ? WHERE ID = ? (?,?)', [usuario.nome, usuario.id]);
+        db.run('UPDATE USUARIO SET NOME=? WHERE ID=?', [usuario.nome, usuario.id]);
     });
 }

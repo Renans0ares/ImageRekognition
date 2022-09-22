@@ -24,13 +24,13 @@ app.put('/usuario', function (req, res) {
             "msg": "Por favor, insira um id."
         })
     }
-    eles
+    else
     {
         alterarUsuario(req.body)
         res.json({
             "statusCode": 200
         })
     }
-})
+});
 
 app.listen(3000, () => console.log("Api Rodando."));
