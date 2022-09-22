@@ -1,28 +1,28 @@
 const Sequelize = require('sequelize');
 const database = require('./db.js')
 
-const Usuario = database.define('USUARIO',{
-    CODIGO_ID:{
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },
-    LOGIN:{
-       type:Sequelize.STRING,
-       allowNull:false 
-    },
-    SENHA:{
-        type:Sequelize.STRING,
-        allowNull:false 
-     },
-     NOME:{
-        type:Sequelize.STRING,
-        allowNull:false 
-     },
-     TELEFONE:{
-        type:Sequelize.STRING,
-     }
+const Usuario = database.define('USUARIO', {
+   CODIGO_ID: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true
+   },
+   LOGIN: {
+      type: Sequelize.STRING,
+      allowNull: false
+   },
+   SENHA: {
+      type: Sequelize.STRING,
+      allowNull: false
+   },
+   NOME: {
+      type: Sequelize.STRING,
+      allowNull: false
+   },
+   TELEFONE: {
+      type: Sequelize.STRING,
+   }
 })
 
 module.exports = Usuario;
@@ -56,7 +56,7 @@ module.exports = Usuario;
 // console.log(produto)
 
 
-// UPDATE   
+// UPDATE
 // const produto = await Produto.findByPk(1);
 // //console.log(produto);
 // produto.nome = "Mouse Top";
@@ -64,7 +64,7 @@ module.exports = Usuario;
 // const resultadoSave = await produto.save();
 // console.log(resultadoSave);
 
-// DELETE   
+// DELETE
 // //assim
 // Produto.destroy({ where: { id: 1 }});
 

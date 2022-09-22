@@ -1,45 +1,45 @@
 const Sequelize = require('sequelize');
 const database = require('./db.js')
 
-const Produto = database.define('PRODUTO',{
-    CODIGO_ID:{
+const Produto = database.define('PRODUTO', {
+    CODIGO_ID: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    NOME:{
+    NOME: {
         type: Sequelize.STRING,
     },
-    TIPO1:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    CONFIDENCE1:{
-        type: Sequelize.DOUBLE,
-        allowNull: false
-    },
-    TIPO2:{
+    TIPO1: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    CONFIDENCE2:{
+    CONFIDENCE1: {
         type: Sequelize.DOUBLE,
         allowNull: false
     },
-    TIPO3:{
+    TIPO2: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    CONFIDENCE2: {
+        type: Sequelize.DOUBLE,
+        allowNull: false
+    },
+    TIPO3: {
         type: Sequelize.STRING,
     },
-    CONFIDENCE3:{
+    CONFIDENCE3: {
         type: Sequelize.DOUBLE,
     },
-    TIPO4:{
+    TIPO4: {
         type: Sequelize.STRING,
     },
-    CONFIDENCE4:{
+    CONFIDENCE4: {
         type: Sequelize.DOUBLE,
     },
-    CAMINHOIMAGE:{
+    CAMINHOIMAGE: {
         type: Sequelize.STRING
     }
 })
