@@ -12,9 +12,9 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="aws-cognito-sdk.min.js"></script>
-  <script src="amazon-cognito-identity.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/aws-cognito-sdk.min.js"></script>
+  <script src="../js/amazon-cognito-identity.min.js"></script>
   <script src="https://sdk.amazonaws.com/js/aws-sdk-2.16.0.min.js"></script>
   <style>
     body {
@@ -85,20 +85,27 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
   </style>
 </head>
 
-<body class="img js-fullheight"
-  style="background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);">
-
-  <form action="upload.php" method="POST">
+<body class="img js-fullheight" style="background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);">
+ <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">GR Company</span>
+    </nav>
+  <form action="../db/index.js" name="forme" method="POST">
     <input type="file" name="fileToUpload" id="fileToUpload" multiple>
     <p>Arraste a imagem para está area.</p>
-    <button type="submit">Consultar</button>
+    <button onclick="Salvar()">Salvar</button>
   </form>
 </body>
 <script>
 
-  document.getElementById("fileToUpload").addEventListener("change", function (event) {
-    ProcessImage();
+document.getElementById("fileToUpload").addEventListener("change", function (event) {
+    var imagem = confirm("Enviar a imagem");
+
+    if(imagem){
+      ProcessImage();
+    }
   }, false);
+
+  
 
   //Calls DetectFaces API and shows estimated ages of detected faces
   function DetectFaces(imageData) {
@@ -115,11 +122,7 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
     rekognition.detectLabels(params, function (err, data) {
       if (err) console.log(err, err.stack); // an error occurred
       else {
-        for (let i = 0; i < data["Labels"].length; i++) {
-          if (data["Labels"][i]["Name"] != "Clothing") {
-            console.log(data["Labels"][i]["Name"] + " - " + data["Labels"][i]["Confidence"]);
-          }
-        }
+        document.forme.submit();
       }
     });
 
@@ -145,9 +148,12 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
     var file = control.files[0];
     // Load base64 encoded image 
     var reader = new FileReader();
+    alert('Passou até aqui');
     reader.onload = (function (theFile) {
       return function (e) {
+        alert('Passou até aqui 2');
         var img = document.createElement('img');
+        alert('fodeu');
         var image = null;
         img.src = e.target.result;
         var jpg = true;
@@ -197,6 +203,7 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-<script src="js/main.js"></script>
+<script src="../js/main.js"></script>
+
 
 </html>

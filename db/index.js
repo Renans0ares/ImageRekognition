@@ -1,8 +1,14 @@
 //index.js
+
+app.post('/teste', function(req, res){
+    res.send('Recebido')
+})
+
 (async () => {
     const database = require('./db');
     const Usuario = require('./USUARIO.js');
     const Produto = require('./PRODUTO.js');
+
 
     try {
         const resultado = await database.sync();
@@ -25,6 +31,7 @@
         console.log(error);
     }
 })();
+
 
 // SELECT * FROM PRODUTOs 
 // where TIPO1 like '%shoe%' AND
