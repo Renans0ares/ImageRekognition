@@ -17,3 +17,21 @@ export async function alterarUsuario(usuario) {
         db.run('UPDATE USUARIO SET NOME=? WHERE ID=?', [usuario.nome, usuario.id]);
     });
 }
+
+export async function buscaUsuarios() {
+    return openDb().then(db => {
+        return db.all('SELECT * FROM USUARIO').then(res => res)
+    });
+}
+
+export async function buscaUsuario(id) {
+    return openDb().then(db => {
+        return db.get('SELECT * FROM USUARIO WHERE ID=?', [id]).then(res => res)
+    });
+}
+
+export async function excluirUsuario(id) {
+    return openDb().then(db => {
+        return db.get('DELETE FROM USUARIO WHERE ID=?', [id]).then(res => res)
+    });
+}

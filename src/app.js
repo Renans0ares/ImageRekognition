@@ -1,4 +1,4 @@
-import { criarTabela, inserirUsuario, alterarUsuario } from './Controller/Usuario.js';
+import { criarTabela, inserirUsuario, alterarUsuario, buscaUsuarios, buscaUsuario, excluirUsuario } from './Controller/Usuario.js';
 
 import express from 'express';
 const app = express();
@@ -8,6 +8,16 @@ criarTabela();
 
 app.get('/', function (req, res) {
     res.send("Olá mundo");
+});
+
+app.get('/usuarios', async function (req, res) {
+    let usuarios = await buscaUsuarios();
+    res.json(usuarios);
+});
+
+app.get('/usuario', async function (req, res) {
+    let usuario = await buscaUsuario(req.body.id);
+    res.json(usuario);
 });
 
 app.post('/usuario', function (req, res) {
@@ -31,6 +41,11 @@ app.put('/usuario', function (req, res) {
             "statusCode": 200
         })
     }
+});
+
+app.delete('/usuario', async function (req, res) {
+    let usuario = await excluirUsuario(req.body.id);
+    res.json(usuario);
 });
 
 app.listen(3000, () => console.log("Api Rodando."));
