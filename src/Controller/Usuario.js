@@ -6,32 +6,45 @@ export async function criarTabela() {
     })
 }
 
-export async function inserirUsuario(usuario) {
+export async function buscaUsuarios(req, res) {
+    openDb().then(db => {
+        db.all('SELECT * FROM USUARIO').then(usuarios => res.json(usuarios))
+    });
+}
+
+export async function buscaUsuario(req, res) {
+    let id = req.body.id;
+    openDb().then(db => {
+        db.get('SELECT * FROM USUARIO WHERE ID=?', [id]).then(usuario => res.json(usuario))
+    });
+}
+
+export async function inserirUsuario(req, res) {
+    let usuario = req.body;
     openDb().then(db => {
         db.run('INSERT INTO USUARIO (NOME, LOGIN) VALUES (?,?)', [usuario.nome, usuario.login]);
     });
+    res.json({
+        "statusCode":200
+    })
 }
 
-export async function alterarUsuario(usuario) {
+export async function alterarUsuario(req, res) {
+    let usuario = req.body;
     openDb().then(db => {
         db.run('UPDATE USUARIO SET NOME=? WHERE ID=?', [usuario.nome, usuario.id]);
     });
+    res.json({
+        "statusCode":200
+    })
 }
 
-export async function buscaUsuarios() {
-    return openDb().then(db => {
-        return db.all('SELECT * FROM USUARIO').then(res => res)
+export async function excluirUsuario(req, res) {
+    let id = req.body.id;
+    openDb().then(db => {
+        db.get('DELETE FROM USUARIO WHERE ID=?', [id]).then(usuario => res.json(usuario))
     });
-}
-
-export async function buscaUsuario(id) {
-    return openDb().then(db => {
-        return db.get('SELECT * FROM USUARIO WHERE ID=?', [id]).then(res => res)
-    });
-}
-
-export async function excluirUsuario(id) {
-    return openDb().then(db => {
-        return db.get('DELETE FROM USUARIO WHERE ID=?', [id]).then(res => res)
-    });
+    res.json({
+        "statusCode":200
+    })
 }

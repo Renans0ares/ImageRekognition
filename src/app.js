@@ -1,51 +1,27 @@
-import { criarTabela, inserirUsuario, alterarUsuario, buscaUsuarios, buscaUsuario, excluirUsuario } from './Controller/Usuario.js';
-
 import express from 'express';
+import fs from 'fs';
+import https from 'https';
+import cors from 'cors';
+import router from './routes.js'
+import path from 'path'
+
 const app = express();
+
+// const path = require('path')
 app.use(express.json());
+app.use(cors());
 
-criarTabela();
+app.set('view engine', 'ejs')
 
-app.get('/', function (req, res) {
-    res.send("Olá mundo");
-});
+app.use(express.static("public"))
 
-app.get('/usuarios', async function (req, res) {
-    let usuarios = await buscaUsuarios();
-    res.json(usuarios);
-});
+app.set('views', path.join('src', 'views'))
 
-app.get('/usuario', async function (req, res) {
-    let usuario = await buscaUsuario(req.body.id);
-    res.json(usuario);
-});
-
-app.post('/usuario', function (req, res) {
-    inserirUsuario(req.body);
-    res.json({
-        "statusCode": 200
-    })
-});
-
-app.put('/usuario', function (req, res) {
-    if (req.body && !req.body.id) {
-        res.json({
-            "statusCode": "400",
-            "msg": "Por favor, insira um id."
-        })
-    }
-    else
-    {
-        alterarUsuario(req.body)
-        res.json({
-            "statusCode": 200
-        })
-    }
-});
-
-app.delete('/usuario', async function (req, res) {
-    let usuario = await excluirUsuario(req.body.id);
-    res.json(usuario);
-});
+app.use(router);
 
 app.listen(3000, () => console.log("Api Rodando."));
+
+https.createServer({
+    cert:fs.readFileSync('src/SSL/code.crt'),
+    key:fs.readFileSync('src/SSL/code.key')
+}, app).listen(3001, () => console.log("Rodando em https"));
