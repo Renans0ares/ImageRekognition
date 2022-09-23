@@ -5,8 +5,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
- 
- :root {
+
+:root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -12129,7 +12129,7 @@ a.article:hover {
   display: flex;
 }
 
-#form{
+#form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12141,7 +12141,7 @@ a.article:hover {
 .btn-primary-tools {
   background: var(--gray-dark) !important;
   border: 1px solid !important;
-  color: #fff ;
+  color: #fff;
 }
 
 .btn-tools {
