@@ -21,6 +21,7 @@ router.get('/about',(req, res)=>res.render("about"))
 router.get('/salvar',(req, res)=>res.render("salvar"))
 
 
+
 //Users
 router.get('/usuarios', buscaUsuarios);
 router.get('/usuario', buscaUsuario);
@@ -28,6 +29,12 @@ router.post('/usuario', inserirUsuario);
 router.put('/usuario', alterarUsuario);
 router.delete('/usuario', excluirUsuario);
 
+router.post('/recebe', function(req,res) {
+    req.body.dados
+   
+    res.send(''+ req.body.dados+'')
+    console.log(typeof(req.body.dados))
+})
 //Produto
 router.get('/produtos', buscaProdutos);
 router.get('/produto', buscaProduto);

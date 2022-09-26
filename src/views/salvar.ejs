@@ -230,7 +230,7 @@
     </div>
 
     <div class="form">
-      <form action="#">
+      <form name="form" id="form" action="/recebe" method="post">
         <div class="form-header">
           <div class="title">
             <h1>Consultar a API</h1>
@@ -242,6 +242,7 @@
         <div id="drop_zone">
           <label id=" drop_zone_label">Arraste a imagem para está area.</label>
           <input type="file" name="fileToUpload" id="fileToUpload" multiple>
+          <input hidden type="" value="" name="dados" id="dados" multiple>
 
         </div>
         <!-- <div class="image-upload">
@@ -252,7 +253,7 @@
                 <input id="file-input" type="file" />
               </div> -->
         <div class="continue-button">
-          <button><a href="#">salvar</a> </button>
+          <button type="submit"><a >salvar</a> </button>
         </div>
       </form>
     </div>
@@ -286,7 +287,19 @@
     rekognition.detectLabels(params, function (err, data) {
       if (err) console.log(err, err.stack); // an error occurred
       else {
-        document.forme.submit();
+        let nomeDaVariavelGi = new Array();
+        for (let i = 0; i < data["Labels"].length; i++) {
+          if (data["Labels"][i]["Name"] != "Clothing") {
+            console.log(data["Labels"][i]["Name"] + " - " + data["Labels"][i]["Confidence"]);
+          
+            nomeDaVariavelGi[i] = data["Labels"][i]["Name"] + " - " + data["Labels"][i]["Confidence"]
+          }
+         
+        }
+         
+          document.getElementById('dados').value = nomeDaVariavelGi
+
+          
       }
     });
 
@@ -312,12 +325,12 @@
     var file = control.files[0];
     // Load base64 encoded image 
     var reader = new FileReader();
-    alert('Passou até aqui');
+    
     reader.onload = (function (theFile) {
       return function (e) {
-        alert('Passou até aqui 2');
+       
         var img = document.createElement('img');
-        alert('fodeu');
+        
         var image = null;
         img.src = e.target.result;
         var jpg = true;
