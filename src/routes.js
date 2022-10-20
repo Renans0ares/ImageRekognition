@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { criarTabela, inserirUsuario, alterarUsuario, buscaUsuarios, buscaUsuario, excluirUsuario } from './Controller/Usuario.js';
 import { criarTabelaProduto, inserirProduto, buscaProduto, buscaProdutos } from './Controller/Produto.js';
+import { redirect } from 'statuses';
 
 const router = Router();
 
@@ -31,10 +32,21 @@ router.delete('/usuario', excluirUsuario);
 
 router.post('/recebe', function(req,res) {
     req.body.dados
-   
+    //console.log(req.body.dados)
     res.send(''+ req.body.dados+'')
-    console.log(typeof(req.body.dados))
+    res.send(''+ req.body.confidence+'')
+  
+    const Name = splitString(req.body.dados, ',')
+    const Confidence = splitString(req.body.confidence, ',')
+    
 })
+
+function splitString(stringToSplit, separator) {
+    const arrayOfStrings = stringToSplit.split(separator)
+    
+    return arrayOfStrings
+
+  }
 //Produto
 router.get('/produtos', buscaProdutos);
 router.get('/produto', buscaProduto);
