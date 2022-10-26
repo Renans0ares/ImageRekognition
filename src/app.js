@@ -27,8 +27,6 @@ app.use(router);
 
 app.listen(3000, () => console.log("Api Rodando."));
 
-
-
 https.createServer({
     cert:fs.readFileSync('src/SSL/code.crt'),
     key:fs.readFileSync('src/SSL/code.key')

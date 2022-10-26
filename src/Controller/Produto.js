@@ -19,10 +19,13 @@ export async function buscaProduto(req, res) {
     });
 }
 
-export async function inserirProduto(req, res) {
-    let produto = req.body;
+export async function inserirProduto(tipoDoProduto, porcentagem, res) {
+    let tipoProduto = tipoDoProduto;
+    let probabilidadeProduto = porcentagem;
+    console.log(tipoProduto);
+    console.log(probabilidadeProduto);
     openDb().then(db => {
-        db.run('INSERT INTO PRODUTO (NOME, TIPO1, CONFIDENCE1, TIPO2, CONFIDENCE2, TIPO3, CONFIDENCE3, TIPO4, CONFIDENCE4) VALUES (?,?,?,?)', [produto.nome, produto.tipo1, produto.confidence1, produto.tipo2, produto.confidence2, produto.tipo3, produto.confidence3, produto.tipo4, produto.confidence4, ]);
+        db.run('INSERT INTO PRODUTO (NOME, TIPO1, CONFIDENCE1, TIPO2, CONFIDENCE2, TIPO3, CONFIDENCE3) VALUES (?,?,?,?,?,?,?)', ["Teta", tipoProduto[0], probabilidadeProduto[0], tipoProduto[1], probabilidadeProduto[1], tipoProduto[2], probabilidadeProduto[2]]);
     });
     res.json({
         "statusCode":200

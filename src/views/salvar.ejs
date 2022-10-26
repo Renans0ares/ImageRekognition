@@ -42,7 +42,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #032e52, #a8eb12);
+        background-color: #FF3CAC;
+        background-image: linear-gradient(to right top, #004d7a 0%, #784BA0 50%, #2B86C5 100%);
   }
 
 
@@ -226,9 +228,7 @@
   <div class="container">
     <div class="form-image">
       <img src="/images/img1.svg">
-
     </div>
-
     <div class="form">
       <form name="form" id="form" action="/recebe" method="post">
         <div class="form-header">
@@ -244,7 +244,6 @@
           <input type="file" name="fileToUpload" id="fileToUpload" multiple>
           <input hidden type="" value="" name="dados" id="dados" multiple>
           <input hidden type="" value="" name="confidence" id="confidence" multiple>
-
         </div>
         <!-- <div class="image-upload">
                 <label for="file-input">
@@ -290,25 +289,17 @@
       else {
         let Name = new Array();
         let Confidence = new Array();
-       
-        aux = 0;
+        let aux = 0;
         for (let i = 0; i < data["Labels"].length; i++) {
           if (data["Labels"][i]["Name"] != "Clothing") {
             console.log(data["Labels"][i]["Name"] + " - " + data["Labels"][i]["Confidence"]);
-          
             Name[aux] = data["Labels"][i]["Name"] 
             Confidence[aux] = data["Labels"][i]["Confidence"]
             aux++;
           }
-         
         }
-         
-        console.log(Name);
-        document.getElementById('drop_zone_label').innerHTML = 'Imagem Anexada!';
         document.getElementById('dados').value = Name
         document.getElementById('confidence').value = Confidence
-
-          
       }
     });
 
@@ -337,7 +328,6 @@
     
     reader.onload = (function (theFile) {
       return function (e) {
-       
         var img = document.createElement('img');
         
         var image = null;
