@@ -17,9 +17,10 @@ router.get('/', (req, res) => {
 
 router.get('/index',(req, res)=>res.render("index"))
 router.get('/principal',(req, res)=>res.render("principal"))
-router.get('/imagem',(req, res)=>res.render("imagem"))
+router.get('/consultar', (req, res) => res.render("consultar"))
 router.get('/about',(req, res)=>res.render("about"))
 router.get('/salvar',(req, res)=>res.render("salvar"))
+// router.get('/imagem',(req, res)=>res.render("imagem"))
 
 //Users
 router.get('/usuarios', buscaUsuarios);
@@ -31,7 +32,14 @@ router.delete('/usuario', excluirUsuario);
 router.post('/recebe', function(req,res) {
     const Name = splitString(req.body.dados, ',')
     const Confidence = splitString(req.body.confidence, ',')
-    inserirProduto(Name, Confidence, res)
+    const FileName = req.body.fileToUpload
+    inserirProduto(Name, Confidence, FileName, res)
+})
+
+router.post('/buscaProduto', function(req,res) {
+    const Name = splitString(req.body.dados, ',')
+    const Confidence = splitString(req.body.confidence, ',')
+    buscaProduto(Name, Confidence, res)
 })
 
 function splitString(stringToSplit, separator) {

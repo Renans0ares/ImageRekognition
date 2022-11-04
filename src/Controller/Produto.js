@@ -12,20 +12,21 @@ export async function buscaProdutos(req, res) {
     });
 }
 
-export async function buscaProduto(req, res) {
-    let id = req.body.id;
+export async function buscaProduto(tipoDoProduto, porcentagem, res) {
+    let tipoProduto = tipoDoProduto;
+    let probabilidadeProduto = porcentagem;
+    console.log(tipoProduto[0])
     openDb().then(db => {
-        db.get('SELECT * FROM PRODUTO WHERE ID=?', [id]).then(produto => res.json(produto))
+        db.get('SELECT * FROM PRODUTO WHERE TIPO1=?', [tipoProduto[0]]).then(produto => res.render("produtoView", { produto : produto }))
     });
 }
 
-export async function inserirProduto(tipoDoProduto, porcentagem, res) {
+export async function inserirProduto(tipoDoProduto, porcentagem, nomeDoArquivo,res) {
     let tipoProduto = tipoDoProduto;
     let probabilidadeProduto = porcentagem;
-    console.log(tipoProduto);
-    console.log(probabilidadeProduto);
+    let nomeProduto = nomeDoArquivo;
     openDb().then(db => {
-        db.run('INSERT INTO PRODUTO (NOME, TIPO1, CONFIDENCE1, TIPO2, CONFIDENCE2, TIPO3, CONFIDENCE3) VALUES (?,?,?,?,?,?,?)', ["Teta", tipoProduto[0], probabilidadeProduto[0], tipoProduto[1], probabilidadeProduto[1], tipoProduto[2], probabilidadeProduto[2]]);
+        db.run('INSERT INTO PRODUTO (NOME, TIPO1, CONFIDENCE1, TIPO2, CONFIDENCE2, TIPO3, CONFIDENCE3) VALUES (?,?,?,?,?,?,?)', [nomeProduto, tipoProduto[0], probabilidadeProduto[0], tipoProduto[1], probabilidadeProduto[1], tipoProduto[2], probabilidadeProduto[2]]);
     });
     res.json({
         "statusCode":200
