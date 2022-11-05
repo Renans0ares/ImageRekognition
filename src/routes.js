@@ -28,10 +28,12 @@ router.get("/", (req, res) => {
 // criarTabela()
 
 router.get("/index", (req, res) => res.render("index"));
+router.get("/cadastro",(req, res) => res.render("cadastro"));
 router.get("/principal", (req, res) => res.render("principal"));
 router.get("/consultar", (req, res) => res.render("consultar"));
 router.get("/about", (req, res) => res.render("about"));
 router.get("/salvar", (req, res) => res.render("salvar"));
+router.get("/produtoView", (req, res) => res.render("produtoView"));
 // router.get('/imagem',(req, res)=>res.render("imagem"))
 
 //Users

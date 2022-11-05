@@ -248,9 +248,7 @@
             </div>
           </div>
           <div id="drop_zone">
-            <label id=" drop_zone_label"
-              >Arraste a imagem para está area.</label
-            >
+            <label id=" drop_zone_label">Arraste a imagem para está area.</label>
             <input type="file" name="fileToUpload" id="fileToUpload" multiple />
           </div>
           <!-- <div class="image-upload">
@@ -293,11 +291,7 @@
         else {
           for (let i = 0; i < data["Labels"].length; i++) {
             if (data["Labels"][i]["Name"] != "Clothing") {
-              console.log(
-                data["Labels"][i]["Name"] +
-                  " - " +
-                  data["Labels"][i]["Confidence"]
-              );
+              console.log(data["Labels"][i]["Name"] + " - " + data["Labels"][i]["Confidence"]);
             }
           }
         }
