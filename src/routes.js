@@ -53,7 +53,8 @@ router.post("/recebe", function (req, res) {
 router.post("/buscaProduto", function (req, res) {
   const Name = splitString(req.body.dados, ",");
   const Confidence = splitString(req.body.confidence, ",");
-  buscaProduto(Name, Confidence, res);
+  //buscaProduto(Name, Confidence, res);
+  buscaProdutos(Name, Confidence, res); //Retorna todos os itens para o teste da lista
 });
 
 function splitString(stringToSplit, separator) {

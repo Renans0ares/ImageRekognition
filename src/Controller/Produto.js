@@ -8,9 +8,17 @@ export async function criarTabelaProduto() {
   });
 }
 
-export async function buscaProdutos(req, res) {
-  openDb().then((db) => {
-    db.all("SELECT * FROM PRODUTO").then((produtos) => res.json(produtos));
+// export async function buscaProdutos(req, res) {
+//   openDb().then((db) => {
+//     db.all("SELECT * FROM PRODUTO").then((produtos) => res.render("produtoView", { produto: produto }));
+//   });
+// }
+
+export async function buscaProdutos(tipoDoProduto, porcentagem, res) {
+  let tipoProduto = tipoDoProduto;
+  let probabilidadeProduto = porcentagem;
+  openDb().then((db) => { // Montar a query corretamente
+    db.all("SELECT * FROM PRODUTO WHERE TIPO1=?", [tipoProduto[0]]).then((produtos) => res.render("produtoView", { produtos: produtos }));
   });
 }
 

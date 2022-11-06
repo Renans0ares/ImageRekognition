@@ -11740,7 +11740,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #A8EB12;
+  color: #71a6d2;
 }
 
 a:hover,
@@ -11768,7 +11768,7 @@ h5,
 }
 
 .bg-primary {
-  background: #A8EB12 !important;
+  background: #71a6d2 !important;
 }
 
 .ftco-section {
@@ -11957,11 +11957,11 @@ textarea.form-control {
 
 /* Style the checkmark/indicator */
 .checkbox-primary {
-  color: #A8EB12;
+  color: #71a6d2;
 }
 
 .checkbox-primary input:checked~.checkmark:after {
-  color: #A8EB12;
+  color: #71a6d2;
 }
 
 .btn {
@@ -11980,26 +11980,26 @@ textarea.form-control {
 }
 
 .btn.btn-primary {
-  background: #A8EB12 !important;
-  border: 1px solid#A8EB12 !important;
+  background: #71a6d2 !important;
+  border: 1px solid#71a6d2 !important;
   color: #000 !important;
 }
 
 .btn.btn-primary:hover {
-  border: 1px solid#A8EB12;
+  border: 1px solid#71a6d2;
   background: transparent;
-  color: #A8EB12;
+  color: #71a6d2;
 }
 
 .btn.btn-primary.btn-outline-primary {
-  border: 1px solid#A8EB12;
+  border: 1px solid#71a6d2;
   background: transparent;
-  color: #A8EB12;
+  color: #71a6d2;
 }
 
 .btn.btn-primary.btn-outline-primary:hover {
   border: 1px solid transparent;
-  background: #A8EB12;
+  background: #71a6d2;
   color: #fff;
 }
 
@@ -12025,7 +12025,7 @@ textarea.form-control {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background-color: #17202A;
+  background-color: #71a6d2;
   border-radius: 0 25px 0px 0;
 }
 
@@ -12043,8 +12043,8 @@ textarea.form-control {
 }
 
 #sidebar ul li a:hover {
-  color: #17202A;
-  background: #A8EB12;
+  color: #71a6d2;
+  background: #71a6d2;
 }
 
 #sidebar ul li.active>a:hover,
@@ -12159,8 +12159,8 @@ a.article:hover {
 
 
 #maintools a:hover {
-  background: #A8EB12 !important;
-  border: 1px solid#A8EB12 !important;
+  background: #71a6d2 !important;
+  border: 1px solid#71a6d2 !important;
   color: #000 !important;
 }
 

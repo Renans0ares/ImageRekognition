@@ -233,42 +233,24 @@
   <body class="img js-fullheight">
     <div class="container">
       <div class="form-image">
-        <img src="/images/img1.svg" /> <!-- Imagem do produto deve vir através daqui -->
+        <!-- <img src="images/<%= produtos[0].NOME %>"> Imagem do produto deve vir através daqui -->
       </div>
       <div class="form">
         <form action="#">
           <div class="form-header">
             <div class="title">
-              <h1>
-                <%=     produto.ID     %>
-              </h1>
-              <br>
-              <h1>
-                <%=     produto.NOME     %>
-              </h1>
-              <br>
-              <h1>
-                <%=     produto.TIPO1     %>
-              </h1>
-              <br>
-              <h1>
-                <%=     produto.CONFIDENCE1     %>
-              </h1>
-              <br>
-              <h1>
-                <%=     produto.TIPO2     %>
-              </h1>
-              <br>
-              <h1>
-                <%=     produto.CONFIDENCE2     %>
-              </h1>
-            </div>
-              <p>
-                <!-- Dica de como ver as propriedades dos objetos passados -->
-                <%=     console.log(Object.keys(produto))      %>
-                <!-- Verifique o code acima para no console -->
-        
-              </p>
+              <ul>
+                  <% produtos.forEach(function(prod) { %>
+                      <li>
+                          <strong><%= prod.NOME %></strong>
+                      </li>
+                      <br>
+                      <li>
+                        <strong><%= prod.TIPO1 %></strong>
+                      </li>
+                      <br>
+                  <% }); %>
+              </ul>
         </form>
       </div>
     </div>
