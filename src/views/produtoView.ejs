@@ -1,47 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>TCC</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script src="../js/aws-cognito-sdk.min.js"></script>
-    <script src="../js/amazon-cognito-identity.min.js"></script>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.16.0.min.js"></script>
   </head>
   <style>
+    @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,600);
+
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+
+.product-box {
+  
+  margin-left: 1rem;
+  font: 13px/23px "Raleway", Arial, sans-serif;
+  color: $text;  
+  padding: 40px 0;
+  
+}
+
+
+
+.productbox {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+  margin: 0 auto;
+  width: 20rem;
+  height: 30rem;
+  background: white;
+  border-radius: 0.3rem;
+  position: relative
+}
+
+.productbox  img{
+
+    width: 100%;
+    height: 60%;
+   
+  }
+
+.price {
+  position: absolute;
+  top: 180px;
+  left: 35%;
+  color: white;
+  text-align: center;
+  background: rgba(0,153,285,0.8);
+  border-radius: 50%;
+  padding: 19px 33px;
+  font-size: 22px;
+  
+  div {
+    margin-top: 5px;
+    font-weight: bold;
+  }
+}
+
+.information {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.name {
+  font-size: 22px;
+}
+
+.store {
+  font-size: 16px;
+  color: $light-text;
+  margin-bottom: 28px;
+}
+
+
+
+
+
     * {
       padding: 0;
       margin: 0;
       box-sizing: border-box;
       font-family: "Inter", sans-serif;
-    }
-
-    .logo {
-      font-size: 24px;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-        sans-serif;
-      background: #23232e;
-      height: 8vh;
     }
 
     body {
@@ -88,7 +133,7 @@
     }
 
     .form {
-      width: 50%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -148,6 +193,13 @@
       cursor: pointer;
     }
 
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
     .continue-button button:hover {
       background-color: #16a084d7;
     }
@@ -159,7 +211,7 @@
       color: #fff;
     }
 
-    @media screen and (max-width: 1330px) {
+    @media screen and (max-width: 1379px) {
       .form-image {
         display: none;
       }
@@ -170,6 +222,35 @@
 
       .form {
         width: 100%;
+      }
+      .input-group {
+        flex-direction: column;
+        z-index: 5;
+        padding-right: 5rem;
+        max-height: 10rem;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+      }
+    }
+    @media screen and (max-height: 690px) {
+      .form-image {
+        display: none;
+      }
+
+      .container {
+        width: 50%;
+      }
+
+      .form {
+        width: 100%;
+      }
+      .input-group {
+        flex-direction: column;
+        z-index: 5;
+        padding-right: 5rem;
+        max-height: 10rem;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
       }
     }
 
@@ -182,80 +263,86 @@
       .form-header {
         width: 100%;
       }
-    }
 
-    form input {
-      border: 4px dashed rgb(17, 15, 15);
-      margin: 0;
-      padding: 2rem;
-      width: 100%;
-      height: 100%;
-      outline: none;
-      opacity: 0;
-    }
-
-    #drop_zone {
-      border: 0.2rem dashed rgb(17, 15, 15);
-      width: 100%;
-      height: 50%;
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    #drop_zone_label {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    form input {
-      margin: 0;
-      padding: 2rem;
-      width: 100%;
-      height: 100%;
-      outline: none;
-      opacity: 0;
-    }
-
-    .image-upload {
-      display: flex;
-      padding: 2rem;
-      width: 100%;
-      height: 100%;
+      .input-group {
+        align-items: center;
+        flex-direction: column;
+        z-index: 5;
+        padding-right: 1rem;
+        max-height: 10rem;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+      }
+      
     }
   </style>
 
-  <body class="img js-fullheight">
+  <body>
     <div class="container">
-      <div class="form-image">
-        <!-- <img src="images/<%= produtos[0].NOME %>"> Imagem do produto deve vir através daqui -->
-      </div>
+     
       <div class="form">
         <form action="#">
-          <div class="form-header">
-            <div class="title">
-              <ul>
-                  <% produtos.forEach(function(prod) { %>
-                      <li>
-                          <strong><%= prod.NOME %></strong>
-                      </li>
-                      <br>
-                      <li>
-                        <strong><%= prod.TIPO1 %></strong>
-                      </li>
-                      <br>
-                  <% }); %>
-              </ul>
+        
+
+          <div class="input-group">
+            <div class="product-box">
+                <div class="productbox">
+                  <img src="/images/teste.jpeg" alt="cookies" class="hero-image" />
+                  
+                  <div class="price">$ <div>95</div></div>
+                  
+                  <div class="information">
+              
+                    <div class="name">Tenis Renan</div>
+                    
+                    <div class="store">30 em Estoque</div>
+                    
+                    <a href="#" class="button"></a>
+                    
+                  </div> 
+                </div> 
+              </div>
+              <br>
+            <div class="product-box">
+                <div class="productbox">
+                  <img src="/images/teste.jpeg" alt="cookies" class="hero-image" />
+                  
+                  <div class="price">$ <div>95</div></div>
+                  
+                  <div class="information">
+              
+                    <div class="name">Tenis Renan</div>
+                    
+                    <div class="store">30 em estoque</div>
+                    
+                    <a href="#" class="button"></a>
+                    
+                  </div> 
+                </div> 
+              </div> 
+              <br>
+              <div class="product-box">
+                <div class="productbox">
+                  <img src="/images/teste.jpeg" alt="cookies" class="hero-image" />
+                  
+                  <div class="price">$ <div>100.00</div></div>
+                  
+                  <div class="information">
+              
+                    <div class="name">Renan tenis</div>
+                    
+                    <div class="store">10 estoque</div>
+                    
+                    <a href="#" class="button"></a>
+                    
+                  </div> 
+                </div> 
+              </div> 
+              
+          </div>
+     
         </form>
       </div>
     </div>
   </body>
-  <script>
-    // console.log(Object.keys(produto))
-  </script>
 </html>
