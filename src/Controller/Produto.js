@@ -18,7 +18,7 @@ export async function buscaProdutos(tipoDoProduto, porcentagem, res) {
   let tipoProduto = tipoDoProduto;
   let probabilidadeProduto = porcentagem;
   openDb().then((db) => { // Montar a query corretamente
-    db.all("SELECT * FROM PRODUTO WHERE TIPO1=?", [tipoProduto[0]]).then((produtos) => res.render("produtoView", { produtos: produtos }));
+    db.all("SELECT * FROM PRODUTO WHERE TIPO1=? LIMIT 3", [tipoProduto[0]]).then((produtos) => res.render("produtoView", { produtos: produtos }));
   });
 }
 

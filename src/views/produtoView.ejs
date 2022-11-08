@@ -10,77 +10,65 @@
   <style>
     @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,600);
 
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
 
+    .product-box {
+      margin-left: 1rem;
+      font: 13px/23px "Raleway", Arial, sans-serif;
+      color: $text;
+      padding: 40px 0;
+    }
 
-*, *:before, *:after {
-  box-sizing: border-box;
-}
+    .productbox {
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+      margin: 0 auto;
+      width: 20rem;
+      height: 30rem;
+      background: white;
+      border-radius: 0.3rem;
+      position: relative;
+    }
 
+    .productbox img {
+      width: 100%;
+      height: 60%;
+    }
 
+    .price {
+      position: absolute;
+      top: 180px;
+      left: 35%;
+      color: white;
+      text-align: center;
+      background: rgba(0, 153, 285, 0.8);
+      border-radius: 50%;
+      padding: 19px 33px;
+      font-size: 22px;
 
-.product-box {
-  
-  margin-left: 1rem;
-  font: 13px/23px "Raleway", Arial, sans-serif;
-  color: $text;  
-  padding: 40px 0;
-  
-}
+      div {
+        margin-top: 5px;
+        font-weight: bold;
+      }
+    }
 
+    .information {
+      text-align: center;
+      margin-top: 18px;
+    }
 
+    .name {
+      font-size: 22px;
+    }
 
-.productbox {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
-  margin: 0 auto;
-  width: 20rem;
-  height: 30rem;
-  background: white;
-  border-radius: 0.3rem;
-  position: relative
-}
-
-.productbox  img{
-
-    width: 100%;
-    height: 60%;
-   
-  }
-
-.price {
-  position: absolute;
-  top: 180px;
-  left: 35%;
-  color: white;
-  text-align: center;
-  background: rgba(0,153,285,0.8);
-  border-radius: 50%;
-  padding: 19px 33px;
-  font-size: 22px;
-  
-  div {
-    margin-top: 5px;
-    font-weight: bold;
-  }
-}
-
-.information {
-  text-align: center;
-  margin-top: 18px;
-}
-
-.name {
-  font-size: 22px;
-}
-
-.store {
-  font-size: 16px;
-  color: $light-text;
-  margin-bottom: 28px;
-}
-
-
-
-
+    .store {
+      font-size: 16px;
+      color: $light-text;
+      margin-bottom: 28px;
+    }
 
     * {
       padding: 0;
@@ -273,74 +261,32 @@
         overflow-y: scroll;
         flex-wrap: nowrap;
       }
-      
     }
   </style>
 
   <body>
     <div class="container">
-     
       <div class="form">
         <form action="#">
-        
-
           <div class="input-group">
+            <% produtos.forEach(function(prod) { %> 
             <div class="product-box">
-                <div class="productbox">
-                  <img src="/images/teste.jpeg" alt="cookies" class="hero-image" />
-                  
-                  <div class="price">$ <div>95</div></div>
-                  
+              <div class="productbox">
+                  <img src="/images/<%= prod.NOME %>"" alt="cookies" class="hero-image" />
+                  <div class="price">
+                    $
+                    <div>95</div>
+                  </div>
                   <div class="information">
-              
-                    <div class="name">Tenis Renan</div>
-                    
+                    <div class="name"><%= prod.NOME %></div>
                     <div class="store">30 em Estoque</div>
-                    
                     <a href="#" class="button"></a>
-                    
-                  </div> 
-                </div> 
+                  </div>
+                  <br />
+                </div>
               </div>
-              <br>
-            <div class="product-box">
-                <div class="productbox">
-                  <img src="/images/teste.jpeg" alt="cookies" class="hero-image" />
-                  
-                  <div class="price">$ <div>95</div></div>
-                  
-                  <div class="information">
-              
-                    <div class="name">Tenis Renan</div>
-                    
-                    <div class="store">30 em estoque</div>
-                    
-                    <a href="#" class="button"></a>
-                    
-                  </div> 
-                </div> 
-              </div> 
-              <br>
-              <div class="product-box">
-                <div class="productbox">
-                  <img src="/images/teste.jpeg" alt="cookies" class="hero-image" />
-                  
-                  <div class="price">$ <div>100.00</div></div>
-                  
-                  <div class="information">
-              
-                    <div class="name">Renan tenis</div>
-                    
-                    <div class="store">10 estoque</div>
-                    
-                    <a href="#" class="button"></a>
-                    
-                  </div> 
-                </div> 
-              </div> 
-              
+            <% }); %>
           </div>
-     
         </form>
       </div>
     </div>

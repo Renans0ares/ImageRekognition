@@ -308,7 +308,11 @@
           let aux = 0;
           for (let i = 0; i < data["Labels"].length; i++) {
             if (data["Labels"][i]["Name"] != "Clothing") {
-              console.log(data["Labels"][i]["Name"] + " - " + data["Labels"][i]["Confidence"]);
+              console.log(
+                data["Labels"][i]["Name"] +
+                  " - " +
+                  data["Labels"][i]["Confidence"]
+              );
               Name[aux] = data["Labels"][i]["Name"];
               Confidence[aux] = data["Labels"][i]["Confidence"];
               aux++;
