@@ -3,7 +3,7 @@ import { openDb } from "../configDb.js";
 export async function criarTabelaProduto() {
   openDb().then((db) => {
     db.exec(
-      "CREATE TABLE IF NOT EXISTS PRODUTO (ID INTEGER PRIMARY KEY AUTOINCREMENT, NOME TEXT NOT NULL, TIPO1 TEXT NOT NULL, CONFIDENCE1 DOUBLE,TIPO2 TEXT NOT NULL, CONFIDENCE2 DOUBLE, TIPO3 TEXT NOT NULL, CONFIDENCE3 DOUBLE, TIPO4 TEXT NOT NULL, CONFIDENCE4 DOUBLE)"
+      "CREATE TABLE IF NOT EXISTS PRODUTO (ID INTEGER PRIMARY KEY AUTOINCREMENT, NOME TEXT NOT NULL, TIPO1 TEXT NOT NULL, CONFIDENCE1 DOUBLE,TIPO2 TEXT NOT NULL, CONFIDENCE2 DOUBLE, TIPO3 TEXT, CONFIDENCE3 DOUBLE)"
     );
   });
 }
@@ -18,7 +18,7 @@ export async function buscaProdutos(tipoDoProduto, porcentagem, res) {
   let tipoProduto = tipoDoProduto;
   let probabilidadeProduto = porcentagem;
   openDb().then((db) => { // Montar a query corretamente
-    db.all("SELECT * FROM PRODUTO WHERE TIPO1=? LIMIT 3", [tipoProduto[0]]).then((produtos) => res.render("produtoView", { produtos: produtos }));
+    db.all("SELECT * FROM PRODUTO WHERE TIPO1=? AND (TIPO2=? OR TIPO3=?) LIMIT 3", [tipoProduto[0],tipoProduto[1], tipoProduto[2]]).then((produtos) => res.render("produtoView", { produtos: produtos }));
   });
 }
 
